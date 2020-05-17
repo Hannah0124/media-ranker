@@ -1,0 +1,40 @@
+<section>
+  <h2><%= @work.title %></h2>
+  <p>Created by: <%= @work.creator %></p>
+  <p>Published: <%= @work.publication_year %></p>
+  <p><%= @work.description %></p>
+
+  <section>
+    <%= link_to "Back to media ranks", root_path, class: 'btn btn-primary' %>
+    <%= link_to "Edit", edit_work_path(@work.id), class: 'btn btn-primary' %>
+    <%= link_to "Upvote", upvote_path(@work.id), class: 'btn btn-primary', method: :post %>
+    <%= link_to "Delete", work_path(@work.id), class: 'btn btn-danger', method: :delete, data: { confirm: '❗️ Are you sure?'} %>
+  </section>
+</section>
+
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header">
+    <%= @work.votes.count %> Votes for this <%=@work.category.capitalize %>
+  </h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% if @work.votes %>
+        <% @work.votes.each do |vote| %>
+          <tr>
+            <td><%= link_to "#{vote.user.name}", user_path(vote.user_id) %></td>
+            <td><%= vote.created_at.strftime("%b %d, %Y") %></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</section>
+
+<%# reference: https://apidock.com/ruby/Time/strftime %>
