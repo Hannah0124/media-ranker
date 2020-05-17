@@ -16,18 +16,66 @@
       <nav class="app-header__nav">
         <ul class="nav app-header__site-nav-container">
           <li class="nav-item app-header__nav_item"><%= link_to "View top media", root_path, class: "nav-link" %></li>
-          <li class="nav-item app-header__nav_item"><%= link_to "View all media", root_path, class: "nav-link"%></li>
-          <li class="nav-item app-header__nav_item"><%= link_to "Add a network", root_path, class: "nav-link"%></li>
-          <li class="nav-item app-header__nav_item"><%= link_to "View all users", root_path, class: "nav-link"%></li>
+          <li class="nav-item app-header__nav_item"><%= link_to "View all media", works_path, class: "nav-link"%></li>
+          <li class="nav-item app-header__nav_item"><%= link_to "Add a network", new_work_path, class: "nav-link"%></li>
+          <li class="nav-item app-header__nav_item"><%= link_to "View all users", users_path, class: "nav-link"%></li>
         </ul>
 
         <ul class="nav app-header__user-nav-container">
-          <li class="nav-item app-header__nav_item"><%= link_to "Log In", root_path, class: "btn btn-primary"%></li>
+          <% current_user = User.find_by(id: session[:user_id]) %>
+
+          <% if current_user %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Logged in as #{current_user.name}", user_path(current_user), class: "btn btn-primary"%>
+            </li>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Logout", logout_path, method: :post, class: "btn btn-primary"%>
+            </li>
+
+          <% else %>
+            <li class="nav-item app-header__nav_item">
+              <%= link_to "Log In", login_path, class: "btn btn-primary"%>
+            </li>
+          <% end %>
         </ul>
       </nav>
     </header>
 
-    <%# TODO: Update alert %>
+    <section class="alert__container">
+      <% flash.each do |name, message| %>
+        <div class="alert alert-<%= name %>" >
+          <% message_array = message.split(",") %>
+          <span><%= message_array[0] %></span>
+
+          <% if message_array.length == 2 %>
+            <ul><li><%= message_array[1] %></li></ul>
+          <% end %> 
+
+          <% if @work && @work.errors.any? %> 
+            <ul> 
+              <% @work.errors.each do |column, message| %> 
+                <li>
+                  <%= column.capitalize %> <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          <% if @user && @user.errors.any? %> 
+            <ul> 
+              <% @user.errors.each do |column, message| %> 
+                <li>
+                  <%= column.capitalize %> <%= message %>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
+
+          
+        </div>
+      <% end %>
+    </section>
+
     <main>
       <%= yield %>
     </main>
