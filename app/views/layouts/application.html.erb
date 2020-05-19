@@ -55,7 +55,7 @@
             <ul> 
               <% @work.errors.each do |column, message| %> 
                 <li>
-                  <%= column.capitalize %> <%= message %>
+                  <%= column %>: <%= message %>
                 </li>
               <% end %>
             </ul>
@@ -65,7 +65,7 @@
             <ul> 
               <% @user.errors.each do |column, message| %> 
                 <li>
-                  <%= column.capitalize %> <%= message %>
+                  <%= column %>: <%= message %>
                 </li>
               <% end %>
             </ul>
