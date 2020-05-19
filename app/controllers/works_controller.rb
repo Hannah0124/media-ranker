@@ -27,8 +27,8 @@ class WorksController < ApplicationController
       redirect_to work_path(@work)
       return 
     else 
-      flash.now[:error] = "The media was not succesfully added :("
-      redner :new 
+      flash.now[:warning] = "A problem occurred: Could not update #{@work.category}"
+      render :new 
       return
     end
   end

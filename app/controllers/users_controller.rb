@@ -21,23 +21,24 @@ class UsersController < ApplicationController
 
   def login
     username = params[:user][:name]
-    user = User.find_by(name: username)
+    @user = User.find_by(name: username)
+    
 
-    if user.nil? 
-      user = User.new(name: params[:user][:name])
-
-      if !user.save 
-        flash[:warning] = "Unable to login"
-        redirect_to root_path 
+    if @user.nil? 
+      @user = User.new(user_params)
+      
+      if @user.save 
+        flash[:success] = "Welcome #{@user.name}"
+      else
+        flash.now[:warning] = "A problem occurred: Could not log in"
+        render :login_form
         return 
       end 
-
-      flash[:success] = "Welcome #{user.name}"
     else  
-      flash[:success] = "Successfully logged in as existing user #{user.name} :D"
+      flash[:success] = "Successfully logged in as existing user #{@user.name} :D"
     end
 
-    session[:user_id] = user.id  
+    session[:user_id] = @user.id  
     redirect_to root_path
   end
 
@@ -69,5 +70,11 @@ class UsersController < ApplicationController
     end
 
     redirect_to root_path
+  end
+
+  private 
+
+  def user_params 
+    return params.require(:user).permit(:name)
   end
 end
