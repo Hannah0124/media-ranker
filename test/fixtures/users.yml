@@ -1,0 +1,12 @@
+human:
+  name: Finn the Human
+dog:
+  name: Jake the Dog
+bubblegum:
+  name: Princess Bubblegum
+ice:
+  name: Ice King
+rainicorn:
+  name: Lady Rainicorn
+
+# reference: https://github.com/Ada-Developers-Academy/textbook-curriculum/blob/master/08-rails/test-the-test-database.md

@@ -1,0 +1,21 @@
+one:
+  work: parasite
+  user: Finn the Human
+two: 
+  work: parasite
+  user: dog
+three:
+  work: parasite
+  user: bubblegum
+four:
+  work: parasite
+  user: rainicorn
+five:
+  work: hurt
+  user: dog
+six:
+  work: hurt
+  user: ice
+seven:
+  work: kindred
+  user: ice

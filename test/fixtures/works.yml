@@ -1,0 +1,102 @@
+kindred:
+  category: book
+  title: Kindred
+  creator: butler
+  description: A good sci-fi book
+  publication_year: 1979
+hurt:
+  category: album
+  title: Hurt People
+  creator: Grynffin
+  description: Gryffin has just released his melodic new track 'Hurt People', which features melty vocals from the one and only Aloe Blacc.
+  publication_year: 2019
+parasite:
+  category: movie
+  title: Parasite
+  creator: Bong Joon-ho
+  description: This starts out almost like an 'Ocean's Eleven' heist film and then expands into a comedy, mystery, thriller, drama, romance, crime and even horror film. 
+  publication_year: 2019
+us:
+  category: movie
+  title: Us
+  creator: Jordan Peele
+  description: With Jordan Peele's second inventive, ambitious horror film, we have seen how to beat the sophomore jinx, and it is Us.
+  publication_year: 2019
+knives_out:
+  category: movie
+  title: Kinives out
+  creator: Rian Johnson
+  description: Knives Out sharpens old murder-mystery tropes with a keenly assembled suspense outing that makes brilliant use of writer-director Rian Johnson's stellar ensemble.
+  publication_year: 2019
+toy_story:
+  category: movie
+  title: TOY STORY 4
+  creator: Josh Cooley
+  description: Heartwarming, funny, and beautifully animated, Toy Story 4 manages the unlikely feat of extending -- and perhaps concluding -- a practically perfect animated saga.
+  publication_year: 2019
+irishman:
+  category: movie
+  title: The Irishman
+  creator: Martin Scorsese
+  description: An epic gangster drama that earns its extended runtime, The Irishman finds Martin Scorsese revisiting familiar themes to poignant, funny, and profound effect.
+  publication_year: 2019
+avengers:
+  category: movie
+  title: Avengers
+  creator: Joe Russo, Anthony Russo
+  description: Endgame does whatever it takes to deliver a satisfying finale to Marvel's epic Infinity Saga.
+  publication_year: 2019
+little_women:
+  category: movie
+  title: Little Women
+  creator: Greta Gerwig
+  description: With a stellar cast and a smart, sensitive retelling of its classic source material, Greta Gerwig's Little Women proves some stories truly are timeless.
+  publication_year: 2019
+book_smart:
+  category: movie
+  title: Book smart
+  creator: Olivia Wilde
+  description: Fast-paced, funny, and fresh, Booksmart does the seemingly impossible by adding a smart new spin to the coming-of-age comedy.
+  publication_year: 2019
+marriage_story:
+  category: movie
+  title: Marriage Story
+  creator: Noah Baumbach
+  description: Observing a splintering union with compassion and expansive grace, the powerfully acted Marriage Story ranks among writer-director Noah Baumbach's best works.
+  publication_year: 2019
+black_panther:
+  category: movie
+  title: Black Panther
+  creator: Ryan Coogler
+  description: Black Panther elevates superhero cinema to thrilling new heights while telling one of the MCU's most absorbing stories -- and introducing some of its most fully realized characters.
+  publication_year: 2018
+star_is_born:
+  category: movie
+  title: A star is born
+  creator: Bradley Cooper
+  description: With appealing leads, deft direction, and an affecting love story, A Star Is Born is a remake done right -- and a reminder that some stories can be just as effective in the retelling.
+  publication_year: 2019
+spider_man:
+  category: movie
+  title: Spider Man
+  creator: Bob Persichetti, Peter Ramsey, Rodney Rothman
+  description: Into the Spider-Verse matches bold storytelling with striking animation for a purely enjoyable adventure with heart, humor, and plenty of superhero action.
+  publication_year: 2019
+lovely:
+  category: album
+  title: Lovely
+  creator: Billie Eilish
+  description: This is a song recorded by American singers Billie Eilish and Khalid.
+  publication_year: 2019
+vegetarian:
+  category: book
+  title: The Vegetarian
+  creator: Han Kang
+  description: The Vegetarian is set in modern-day Seoul and tells the story of Yeong-hye, a part-time graphic artist and home-maker, whose decision to stop eating meat after a bloody, nightmarish dream about human cruelty leads to devastating consequences in her personal and familial life.
+  publication_year: 2007
+party:
+  category: album
+  title: When the party's over
+  creator: Billie Eilish
+  description: This is a song by American singer Billie Eilish from her debut studio album When We All Fall Asleep, Where Do We Go? 
+  publication_year: 2018
