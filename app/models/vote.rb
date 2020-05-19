@@ -8,7 +8,6 @@ class Vote < ApplicationRecord
   def self.upvoted?(work_id, user_id)
     Vote.find_by(work_id: work_id, user_id: user_id) ? true : false
   end
-
 end
 
 
