@@ -2,7 +2,7 @@ class WorksController < ApplicationController
 
   def index 
     # @works = Work.all
-    @works = Work.sort_by_vote_counts
+    @works = Work.sort_by_vote
   end
 
   def show 

@@ -13,7 +13,6 @@ class VotesController < ApplicationController
     end 
 
     
-
     # raise
     if @work.nil? 
       render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
@@ -26,7 +25,7 @@ class VotesController < ApplicationController
       return  
 
     else 
-      @vote = Vote.create(work_id: @work.id, user_id: current_user.id)
+      Vote.create(work_id: @work.id, user_id: current_user.id)
       flash[:success] = "Successfully upvoted!"
 
       redirect_back(fallback_location: root_path)
