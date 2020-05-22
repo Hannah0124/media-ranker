@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   post "/login", to: "users#login" 
   post "/logout", to: "users#logout", as: "logout"
 
+  resources :works
+
   resources :works do
     post "/upvote", to: "votes#upvote" #work_work_upvote_path
   end
-
-  resources :works
 end
