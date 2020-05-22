@@ -3,17 +3,15 @@ Rails.application.routes.draw do
 
   root to: "homepages#index"  # root_path
 
-  get "/users", to: "users#index", as: "users"
-  get "/users/:id", to: "users#show", as: "user"
+  resources :users, only: [:index, :show]
 
   get "/login", to: "users#login_form", as: "login"
   post "/login", to: "users#login" 
   post "/logout", to: "users#logout", as: "logout"
 
-  post '/votes/:work_id', to: 'votes#upvote', as: "upvote"
-
-  # get "/users/current", to: "users#current", as: "current_user"
+  resources :works do
+    post "/upvote", to: "votes#upvote" #work_work_upvote_path
+  end
 
   resources :works
-  # resources :users
 end
