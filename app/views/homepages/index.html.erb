@@ -4,7 +4,7 @@
     <%= link_to "#{Work.spotlight.title}", work_path(Work.spotlight), class: "spotlight__link-to" %> by <%= Work.spotlight.creator%>
   </h2>
   <p class="spotlight__description">
-    23 votes - An orphaned boy enrolls in a school of wizardry, where he learns the truth about himself, his family and the terrible evil that haunts the magical world.
+    <%= Work.spotlight.votes.count %> votes - <%= Work.spotlight.description %>
   </p>
 </section>
 
