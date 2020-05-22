@@ -1,7 +1,7 @@
 <section class="spotlight">
   <h2 class="spotlight__header">
     <span class="spotlight__header--prefix">Media Spotlight</span>
-    <%= link_to "#{Work.spotlight.title}", work_path(Work.spotlight), class: "spotlight__link-to" %> by <%= Work.spotlight.creator%>
+    <%= link_to "#{Work.spotlight.title}", work_path(Work.spotlight.id), class: "spotlight__link-to" %> by <%= Work.spotlight.creator%>
   </h2>
   <p class="spotlight__description">
     <%= Work.spotlight.votes.count %> votes - <%= Work.spotlight.description %>
@@ -11,9 +11,9 @@
 <hr class="root__hr">
 
 <section class="top-ten__container">
-  <%= render partial: "top_ten_list", locals: { action_name: "moive" } %>
+  <%= render partial: "top_ten_list", locals: { action_name: MOVIE } %>
 
-  <%= render partial: "top_ten_list", locals: { action_name: "book" } %>
+  <%= render partial: "top_ten_list", locals: { action_name: BOOK } %>
 
-  <%= render partial: "top_ten_list", locals: { action_name: "album" } %>
+  <%= render partial: "top_ten_list", locals: { action_name: ALBUM } %>
 </section>
