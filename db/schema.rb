@@ -39,8 +39,4 @@ ActiveRecord::Schema.define(version: 2020_05_15_201243) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
-
-  add_foreign_key "votes", "works"
-  add_foreign_key "votes", "users"
-
 end
