@@ -45,10 +45,10 @@ describe Work do
 
     describe "custom methods" do 
 
-      describe "self.sort_by_vote_counts" do 
+      describe "self.sort_by_vote" do 
         it "will successfully return sorted works by vote counts (descenidng order)" do 
           # Arrange
-          sorted_works = Work.sort_by_vote_counts
+          sorted_works = Work.sort_by_vote
 
           movie_work = works(:parasite)
           album_work = works(:hurt)
@@ -81,9 +81,9 @@ describe Work do
       describe "self.sort_by_category(category)" do 
         it "will return sorted list per category" do 
           # Arrange 
-          movies = Work.sort_by_category("movie")
-          albums = Work.sort_by_category("album")
-          books = Work.sort_by_category("book")
+          movies = Work.sort_by_category(MOVIE)
+          albums = Work.sort_by_category(ALBUM)
+          books = Work.sort_by_category(BOOK)
 
           # Assert
           expect(movies.length).must_equal 12
@@ -91,15 +91,15 @@ describe Work do
           expect(books.length).must_equal 2
 
           movies.each do |movie| 
-            expect(movie.category).must_equal "movie"
+            expect(movie.category).must_equal MOVIE
           end
 
           albums.each do |album| 
-            expect(album.category).must_equal "album"
+            expect(album.category).must_equal ALBUM
           end
 
           books.each do |book| 
-            expect(book.category).must_equal "book"
+            expect(book.category).must_equal BOOK
           end
 
         end
@@ -108,7 +108,7 @@ describe Work do
       describe "self.top_ten(category)" do
         it "will return top ten list per category" do 
           # Arrange
-          top_ten_movies = Work.top_ten("movie")
+          top_ten_movies = Work.top_ten(MOVIE)
           movie_work = works(:parasite)
 
           # Assert
@@ -116,7 +116,7 @@ describe Work do
 
           top_ten_movies.each do |movie| 
             expect(movie).must_be_instance_of Work
-            expect(movie.category).must_equal "movie"
+            expect(movie.category).must_equal MOVIE
           end
 
           expect(top_ten_movies.first).must_equal movie_work

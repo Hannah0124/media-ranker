@@ -18,4 +18,20 @@ class ActiveSupport::TestCase
   fixtures :all
 
   # Add more helper methods to be used by all tests here...
+
+  def login(username = "Grace Hopper") 
+    # Arrange 
+    user_hash = {
+      user: {
+        name: username
+      }
+    }
+
+    post login_path, params: user_hash 
+
+    user = User.find_by(name: username)
+
+    expect(session[:user_id]).must_equal user.id
+    return user
+  end
 end
