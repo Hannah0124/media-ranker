@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
   def index 
-    # @users = User.order(:id).all
     @users = User.order(created_at: :desc).all 
   end
 
@@ -42,21 +41,10 @@ class UsersController < ApplicationController
     redirect_to root_path
   end
 
-  # # TODO
-  # def current
-  #   @current_user = User.find_by(id: session[:user_id])
-
-  #   unless @current_user 
-  #     flash[:error] = "You must be logged in to see this page"
-  #     redirect_to root_path 
-  #     return 
-  #   end
-  # end
-
   def logout 
-    if session[:user_id]
-      user = User.find_by(id: session[:user_id]) 
+    user = User.find_by(id: session[:user_id]) 
 
+    if user
       unless user.nil?
         session[:user_id] = nil 
         flash[:success] = "Goodbye #{user.name} 👋"
@@ -65,9 +53,6 @@ class UsersController < ApplicationController
         session[:user_id] = nil 
         flash[:warning] = "Error Unknown user"
       end 
-
-    else  
-      flash[:warning] = "You must be logged in to logout"
     end
 
     redirect_to root_path

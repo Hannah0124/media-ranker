@@ -4,9 +4,9 @@
 require "test_helper"
 
 describe WorksController do
-  # it "does a thing" do
-  #   value(1+1).must_equal 2
-  # end
+  before do 
+    login()
+  end
 
   describe "index" do 
     it "responds with sucess when there are many works saved" do 
@@ -114,7 +114,7 @@ describe WorksController do
   describe "edit" do 
     it "responds with success when getting the edit page for an existing, valid work" do
       # Arrange 
-      album_work = works(:hurt)
+      album_work = works(:avengers)
 
       # Act
       get edit_work_path(album_work.id)

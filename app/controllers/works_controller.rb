@@ -1,18 +1,13 @@
 class WorksController < ApplicationController
+  
+  before_action :find_work, only: [:show, :edit, :update, :destroy]
+  around_action :render_404, only: [:show, :edit, :update, :destroy], if: -> { @work.nil? }
 
   def index 
-    # @works = Work.all
     @works = Work.sort_by_vote
   end
 
   def show 
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-
-    if @work.nil?
-      render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
-      return 
-    end
   end
 
   def new 
@@ -34,23 +29,11 @@ class WorksController < ApplicationController
   end
 
   def edit 
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id) 
-
-    if @work.nil? 
-      render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
-      return  
-    end 
   end
 
   def update 
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
 
-    if @work.nil?
-      render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
-      return 
-    elsif @work.update(work_params)
+    if @work.update(work_params)
       flash[:success] = "#{@work.title} was successfully edited! 😄"
       redirect_to work_path(@work.id)
       return
@@ -62,14 +45,8 @@ class WorksController < ApplicationController
   end
 
   def destroy 
-    work_id = params[:id]
-    @work = Work.find_by(id: work_id)
-
-    if @work.nil?
-      render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
-      return 
-    else 
-      @work.destroy 
+    if @work.destroy
+      # @work.destroy 
       flash[:success] = "Successfully destroyed album #{@work.id}"
       redirect_to works_path 
       return
@@ -81,4 +58,16 @@ class WorksController < ApplicationController
   def work_params 
     return params.require(:work).permit(:category, :title, :creator, :publication_year, :description)
   end
+
+  def find_work
+    work_id = params[:id]
+    @work = Work.find_by(id: work_id) 
+  end
+
+  def render_404 
+    render :file => "#{Rails.root}/public/404.html", layout: false, status: :not_found
+    return 
+  end
 end
+
+# around_action - reference: https://apidock.com/rails/v4.0.2/AbstractController/Callbacks/ClassMethods/after_action
