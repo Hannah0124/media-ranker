@@ -26,7 +26,7 @@
     </thead>
     <tbody>
       <% if @work.votes %>
-        <% @work.votes.each do |vote| %>
+        <% Work.sort_by_vote_date(@work).each do |vote| %>
           <tr>
             <td><%= link_to "#{vote.user.name}", user_path(vote.user_id) %></td>
             <td><%= vote.created_at.strftime("%b %d, %Y") %></td>

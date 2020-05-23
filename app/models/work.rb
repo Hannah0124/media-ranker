@@ -4,7 +4,6 @@ BOOK = "book"
 
 class Work < ApplicationRecord
   has_many :votes
-
   validates :title, presence: true
 
 
@@ -33,9 +32,10 @@ class Work < ApplicationRecord
 
     return works_by_category.slice(0, 10)
   end
+
   
-  # # TODO
-  # def self.sort_by_date
-  #   return Work.order(publication_year: :desc).all 
-  # end 
+  # TODO
+  def self.sort_by_vote_date(work) 
+    return work.votes.order(created_at: :desc).all
+  end
 end
