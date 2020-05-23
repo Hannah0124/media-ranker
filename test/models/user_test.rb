@@ -48,5 +48,13 @@ describe User do
 
       expect(new_user.errors.messages[:name]).must_include "can't be blank"
     end
+
+    it "returns true if it has a name" do 
+      # Arrange
+      new_user.name = "Ellen"
+
+      # Assert 
+      expect(new_user.valid?).must_equal true
+    end
   end
 end

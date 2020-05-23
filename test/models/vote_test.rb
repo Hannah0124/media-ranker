@@ -14,6 +14,10 @@ describe Vote do
     Vote.new(work_id: new_work.id, user_id: new_user.id)
   }
 
+  let (:first_vote) {
+    votes(:one)
+  }
+
   it "can be instantiated" do
     expect(new_vote.valid?).must_equal true
   end
@@ -33,6 +37,9 @@ describe Vote do
     it "belongs to a work and user" do 
       expect(new_vote.work).must_be_instance_of Work
       expect(new_vote.user).must_be_instance_of User
+
+      expect(first_vote.work.title).must_equal "Parasite"
+      expect(first_vote.user.name).must_equal "Finn the Human"
     end
   end
 
@@ -47,6 +54,14 @@ describe Vote do
       expect(new_vote.errors.messages[:work_id]).must_include "can't be blank"
     end
 
+    it "return true when given a valid work_id" do
+      # Ararnge 
+      new_vote.work_id = works(:us).id
+
+      # Assert
+      expect(new_vote.valid?).must_equal true
+    end
+
     it "must have user_id" do 
       # Ararnge 
       new_vote.user_id = nil 
@@ -55,6 +70,14 @@ describe Vote do
       expect(new_vote.valid?).must_equal false 
       expect(new_vote.errors.messages).must_include :user_id
       expect(new_vote.errors.messages[:user_id]).must_include "can't be blank"
+    end
+
+    it "return true when given a valid user_id" do
+      # Ararnge 
+      new_vote.user_id = users(:ice).id
+
+      # Assert
+      expect(new_vote.valid?).must_equal true
     end
   end
 

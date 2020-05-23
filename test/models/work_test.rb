@@ -41,6 +41,15 @@ describe Work do
         expect(new_work.errors.messages).must_include :title
         expect(new_work.errors.messages[:title]).must_include "can't be blank"
       end
+
+
+      it "returns true if it has a title" do 
+        # Arrange 
+        new_work.title = "Hell yeah"
+
+        # Assert
+        expect(new_work.valid?).must_equal true
+      end
     end
 
     describe "custom methods" do 
