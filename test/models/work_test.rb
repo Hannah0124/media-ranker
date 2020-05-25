@@ -85,6 +85,20 @@ describe Work do
           expect(spotlight.votes.count).must_equal 4
           expect(spotlight.id).must_equal movie_work.id
         end 
+
+        it "will return nil if there is no spotlight" do 
+
+          # Arrange
+          Work.all.each do |work|
+            work.destroy
+          end
+
+          # Arrange
+          spotlight = Work.spotlight
+    
+          # Assert
+          expect(spotlight).must_equal nil
+        end
       end
 
       describe "self.sort_by_category(category)" do 
