@@ -33,8 +33,6 @@ class Work < ApplicationRecord
     return works_by_category.slice(0, 10)
   end
 
-  
-  # TODO
   def self.sort_by_vote_date(work) 
     return work.votes.order(created_at: :desc).all
   end

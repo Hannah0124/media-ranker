@@ -52,7 +52,6 @@ user_failures = []
 CSV.foreach(USER_FILE, :headers => true) do |row|
   user = User.new
   user.name = row['name']
-  # user.created_at = row['created_at']
   successful = user.save
   if !successful
     user_failures << user

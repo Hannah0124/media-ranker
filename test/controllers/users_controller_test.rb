@@ -58,7 +58,6 @@ describe UsersController do
     end
   end
 
-  # TODO
   describe "login" do 
     it "can login a new user" do 
       user = nil # because of the scope issue, create a variable here first. 
@@ -98,7 +97,4 @@ describe UsersController do
       expect(session[:user_id]).must_be_nil
     end
   end
-
-  # TODO => current user?
-
 end

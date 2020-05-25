@@ -11,8 +11,6 @@ describe VotesController do
         post work_upvote_path(fun_work.id).must_change "Vote.count", 1
       }
 
-      # TODO
-      # expect(flash[:success]).must_equal "Successfully upvoted!"
       must_respond_with :redirect
     end
 
@@ -38,10 +36,6 @@ describe VotesController do
       expect {
         post work_upvote_path(new_work.id).wont_change "Vote.count"
       }
-
-      # TODO
-      # expect(flash[:warning]).must_include "A problem occured: You must log in to do that :("
-      # must_respond_with :redirect
     end
   end
 

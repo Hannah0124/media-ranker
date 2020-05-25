@@ -46,7 +46,6 @@ class WorksController < ApplicationController
 
   def destroy 
     if @work.destroy
-      # @work.destroy 
       flash[:success] = "Successfully destroyed album #{@work.id}"
       redirect_to works_path 
       return

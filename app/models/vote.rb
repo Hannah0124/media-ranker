@@ -11,4 +11,4 @@ class Vote < ApplicationRecord
 end
 
 
-# vlidate reference: https://guides.rubyonrails.org/active_record_validations.html#uniqueness
+# validate reference: https://guides.rubyonrails.org/active_record_validations.html#uniqueness

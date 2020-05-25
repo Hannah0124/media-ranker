@@ -32,13 +32,6 @@ class VotesController < ApplicationController
       return
     end 
   end
-
-
-  # private 
-
-  # def vote_params 
-  #   return params.require(:vote).permit(:work_id, :user_id)
-  # end
 end
 
 # redirect to the previous page - reference: 
